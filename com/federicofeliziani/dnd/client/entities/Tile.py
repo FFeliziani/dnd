@@ -1,14 +1,14 @@
 from PIL import ImageTk, Image
 
+from com.federicofeliziani.dnd.client.entities.Rect import Rect
+from com.federicofeliziani.dnd.client.entities.TileImage import TileImage
+from com.federicofeliziani.dnd.client.entities.TileType import TileType
+
 IMAGE_LIST = []
 
 
-class Tile:
+class Tile(Rect):
     index = 0
-    x = 0
-    y = 0
-    width = 0
-    height = 0
     type = None
     image = None
 
@@ -43,35 +43,3 @@ class Tile:
             img = TileImage(path=self.type.path, image=ImageTk.PhotoImage(Image.open(self.type.path).resize(self.size_as_tuple(), Image.ANTIALIAS)))
             self.image = img.image
             IMAGE_LIST.append(img)
-
-    def size_as_tuple(self):
-        return self.width, self.height
-
-    def position_as_tuple(self):
-        return self.x, self.y
-
-
-class TileType:
-    name = ""
-    path = ""
-    speed = 1.0
-
-    def by_name(self, name="Dirt"):
-        if name.lower().strip() == "dirt" or name.lower().strip() == "d":
-            self.name = "Dirt"
-            self.path = r"resources/images/dirt.png"
-            self.speed = 1.0
-        if name.lower().strip() == "concrete" or name.lower().strip() == "c":
-            self.name = "Concrete"
-            self.path = r"resources/images/concrete.jpg"
-            self.speed = 1.0
-        return self
-
-
-class TileImage:
-    path = None
-    image = None
-
-    def __init__(self, path=None, image=None):
-        self.path = path
-        self.image = image

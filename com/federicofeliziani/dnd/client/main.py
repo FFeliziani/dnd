@@ -16,7 +16,7 @@ class App:
 
         canvas = Canvas(frame, bg="black", width=master.winfo_screenwidth(), height=master.winfo_screenheight())
         canvas.pack()
-        self.map = MapLoader.load("map3")
+        self.map = MapLoader.load("map1")
         for self.tile in self.map.tiles:
             canvas.create_image(self.tile.x * self.tile.width, self.tile.y * self.tile.height, image=self.tile.image, anchor="nw")
             canvas.create_rectangle(self.tile.x * self.tile.width, self.tile.y * self.tile.height, (self.tile.x * self.tile.width) + self.tile.width, (self.tile.y * self.tile.height) + self.tile.height, width=0.5)
