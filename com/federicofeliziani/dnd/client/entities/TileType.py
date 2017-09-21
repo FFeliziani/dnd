@@ -6,10 +6,10 @@ class TileType:
     def by_name(self, name="Dirt"):
         if name.lower().strip() == "dirt" or name.lower().strip() == "d":
             self.name = "Dirt"
-            self.path = r"resources/images/dirt.png"
+            self.path = b"dirt.png"
             self.speed = 1.0
         if name.lower().strip() == "concrete" or name.lower().strip() == "c":
             self.name = "Concrete"
-            self.path = r"resources/images/concrete.jpg"
+            self.path = b"concrete.jpg"
             self.speed = 1.0
         return self

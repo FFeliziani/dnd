@@ -10,6 +10,7 @@ BASE_MAP_PATH = r"resources\maps"
 class MapLoader:
     @staticmethod
     def load(map_name="map1"):
+        return_map = None
         if map_name is not None:
             map_file = None
             with open(os.path.join(BASE_MAP_PATH, map_name), "r") as f:
