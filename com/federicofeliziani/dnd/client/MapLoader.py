@@ -4,7 +4,7 @@ import json
 from com.federicofeliziani.dnd.client.entities.Map import Map
 from com.federicofeliziani.dnd.client.entities.Tile import Tile
 
-BASE_MAP_PATH = r"resources\maps"
+BASE_MAP_PATH = os.fsencode("resources/maps")
 
 
 class MapLoader:
@@ -13,7 +13,7 @@ class MapLoader:
         return_map = None
         if map_name is not None:
             map_file = None
-            with open(os.path.join(BASE_MAP_PATH, map_name), "r") as f:
+            with open(os.path.join(BASE_MAP_PATH, os.fsencode(map_name)), "r") as f:
                 map_file = json.loads(f.read())
             return_map = Map()
             return_map.height = map_file["height"]

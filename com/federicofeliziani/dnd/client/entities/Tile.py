@@ -35,7 +35,7 @@ class Tile(Rect):
             self.width = 0
             self.height = 0
         self.type = TileType.by_name(TileType(), name=tile_type)
-        self.image = ImageStore.get_image(self.type.path)
+        self.image = ImageStore.get_image(self.type.path, (100, 100))
         # found = False
         # for img in IMAGE_LIST:
         #     if img.path == self.type.path:

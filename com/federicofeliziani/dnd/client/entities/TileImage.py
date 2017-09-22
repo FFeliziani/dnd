@@ -1,3 +1,6 @@
+from PIL import Image
+
+
 class TileImage:
     path = None
     image = None
@@ -5,3 +8,6 @@ class TileImage:
     def __init__(self, path=None, image=None):
         self.path = path
         self.image = image
+
+    def resize(self, size):
+        self.image = self.image.resize(size, Image.ANTIALIAS)
